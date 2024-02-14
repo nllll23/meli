@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amorcito, ¿quieres ser mi san valentín?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        #main-content {
+            margin-top: 100px;
+        }
+        h1 {
+            color: #ff6f61; /* Color rosa */
+        }
+        p {
+            color: #2c3e50;
+            font-size: 18px;
+        }
+        button {
+            background-color: #c0392b;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease; /* Agregamos una transición suave para la animación */
+        }
+        button:hover {
+            background-color: #e74c3c;
+        }
+        /* Agregamos una animación para el botón "Sí" cuando se hace clic */
+        #yesButton.clicked {
+            animation: pulse 0.5s ease;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        /* Estilos para la cuadrícula de imágenes */
+        #imageGrid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            margin-top: 20px;
+            width: 600px; /* Ancho total de la cuadrícula */
+            margin: auto; /* Centrar la cuadrícula */
+            position: relative; /* Necesario para posicionar el texto */
+        }
+        .grid-item {
+            width: 100%;
+            position: relative;
+        }
+        .grid-item img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        /* Estilos para el texto "Te amo muchote" */
+        #teAmoTexto {
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+            color: #ff6f61; /* Color rosa */
+            display: none;
+            z-index: 1; /* Asegura que esté por encima de las imágenes */
+        }
+    </style>
+</head>
+<body>
+    <div id="main-content">
+        <!-- Agregamos la imagen aquí -->
+        <img id="amorcito" src="C:\Users\nicol\Downloads\amorcito.jpg" alt="imagen de amorcito">
+        <!-- Fin de la imagen -->
+        <h1>Amorcito, ¿quieres ser mi san valentín?</h1>
+        <p>Querida Emperatriz Tang, dueña de muchas cabezas (y las mías), Mujer de Negocios, Atleta, Comelona, Burlona, Inteligente, Hábil, Frontenista, Venenosa, Futura Selena, Sexy 100% y Renegona 1000%, ¿me harías el honor de ser mi san valentín?</p>
+        <button id="yesButton" onclick="showImageGrid()">¡Sí!</button>
+        <button id="noButton" onclick="noClicked()">No</button>
+        <div id="imageGrid" style="display: none;">
+            <div class="grid-item"><img src="C:\Users\nicol\Downloads\amorcito 1.jpg" alt="imagen 1"></div>
+            <div class="grid-item"><img src="C:\Users\nicol\Downloads\amorcito 2.jpg" alt="imagen 2"></div>
+            <div class="grid-item"><img src="C:\Users\nicol\Downloads\amorcito 3.jpg" alt="imagen 3"></div>
+            <div class="grid-item"><img src="C:\Users\nicol\Downloads\amorcito 5.jpg" alt="imagen 4"></div>
+            <div id="teAmoTexto">Te amo muchote</div>
+            <div class="grid-item"><img src="C:\Users\nicol\Downloads\amorcito 4.jpg" alt="imagen 5"></div>
+            <div class="grid-item"><img src="C:\Users\nicol\Downloads\amorcito 6.jpg" alt="imagen 6"></div>
+            <div class="grid-item"><img src="C:\Users\nicol\Downloads\amorcito 7.jpg" alt="imagen 7"></div>
+            <div class="grid-item"><img src="C:\Users\nicol\Downloads\amorcito 8.jpg" alt="imagen 8"></div>
+            <div class="grid-item"><img src="C:\Users\nicol\Downloads\amorcito 9.jpg" alt="imagen 9"></div>
+        </div>
+    </div>
+
+    <script>
+        let iterations = 0;
+        const maxIterations = 100;
+
+        // Función para mostrar la cuadrícula de imágenes y el texto "Te amo muchote"
+        function showImageGrid() {
+            document.getElementById('imageGrid').style.display = 'grid';
+            document.getElementById('teAmoTexto').style.display = 'block';
+        }
+
+        // Función para manejar el clic en el botón "No"
+        function noClicked() {
+            const yesButton = document.getElementById('yesButton');
+            iterations++;
+            if (iterations <= maxIterations) {
+                const currentSize = window.getComputedStyle(yesButton).fontSize;
+                const newSize = (parseFloat(currentSize) * 1.1) + 'px';
+                yesButton.style.fontSize = newSize;
+            }
+        }
+    </script>
+</body>
+</html>
+
